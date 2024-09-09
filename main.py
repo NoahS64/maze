@@ -7,20 +7,28 @@ import pygame,sys
 pygame.init()
 
 # Game Setup
-fps = 60
+fps = 120
 fpsClock = pygame.time.Clock()
-WINDOW_WIDTH = 500
-WINDOW_HEIGHT = 500
-
+WINDOW_WIDTH = 1000
+WINDOW_HEIGHT = 1000
+x=10
+y=100
+img_bgr = pygame.image.load('images/baconator.jpg') #with .png or .jpb included in the name
+img_bgr = pygame.transform.scale(img_bgr, (100, 100))  #resize image Where 35 ,35 is the size, (x,y)
+font = pygame.font.SysFont('Consolas', 30)
 #Setup of Starting objects
 
 window = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT), pygame.HWSURFACE)
 pygame.display.set_caption("Title")
 def display():
-    window.fill((255,255,255)) #White background
-    object_draw_name=pygame.draw.rect(window,(0,0,255),(10,10,100,50))
-   
-   
+    window.fill((0,0,0)) #White background
+    global x
+    global y
+    x+=.25/4
+    y+=.15/4
+    object_draw_name=pygame.draw.rect(window,(255,255,255),(WINDOW_HEIGHT/2-x/2,WINDOW_WIDTH/2-y/2,x,y))
+    nameOfObject=window.blit(img_bgr,(0, 200))
+    window.blit(font.render("BACONATOR", True, (123, 255, 78)), (0, 160))
 
 while True:
     display()
