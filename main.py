@@ -7,7 +7,7 @@ import textstuff
 pygame.init()
 
 # Game Setup
-fps = 120
+fps = 60
 fpsClock = pygame.time.Clock()
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 1000
@@ -25,13 +25,25 @@ font = pygame.font.SysFont('Consolas', 30)
 old_high_score=float(textstuff.strings_read('txt_file.txt')[0])
 #Setup of Starting objects
 
+run=True
+while run:
+    choice=input("Would you like to start new? Y/N: ").capitalize()
+    if choice == "Y":
+        run=False
+        old_high_score=0
+        textstuff.strings_write("0.00", 'txt_file.txt')
+    elif choice == "N":
+        run=False
+    else:
+        print("Try again")
+
 window = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT), pygame.HWSURFACE)
 pygame.display.set_caption("Title")
 def display():
     window.fill((0,0,0)) #White background
     global speedx, speedy, timer, bgr, finish
-    speedx+=.035*timer
-    speedy+=.035*timer
+    speedx+=.045*timer
+    speedy+=.04*timer
     timer+=.01
     timer = float('{0:.2f}'.format(timer))
 
