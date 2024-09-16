@@ -116,7 +116,7 @@ while True:
             exit()
     if collision(finish,bgr):
         if timer>old_high_score:
-            textstuff.strings_write([str(timer)], 'txt_file.txt')
+            textstuff.strings_write([str(0.00)], 'txt_file.txt')
             
         print("YOU WON!!")
         
