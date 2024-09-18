@@ -8,6 +8,7 @@ import interfaces.intro
 import interfaces.game
 import interfaces.credits
 
+
 pygame.init()
 
 run=False
