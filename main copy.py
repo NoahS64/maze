@@ -25,6 +25,14 @@ while run:
 window = pygame.display.set_mode((manager.WINDOW_WIDTH,manager.WINDOW_HEIGHT), pygame.HWSURFACE)
 pygame.display.set_caption("Title")
 
-#interfaces.credits.output(window)
-interfaces.intro.output(window)
-#interfaces.game.output(window)
+
+while True:
+    if manager.level==2:
+        interfaces.credits.output(window)
+    elif manager.level==0:
+        interfaces.intro.output(window)
+    elif manager.level==1:
+        interfaces.game.output(window)
+    elif manager.level==-1:
+        pygame.quit()
+        sys.exit()

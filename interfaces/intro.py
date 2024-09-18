@@ -17,7 +17,7 @@ def output(window):
         for event in pygame.event.get():
             if btn_game.update(pygame.mouse.get_pos(),event):
                 run=False
-                interfaces.game.output(window)
+                manager.level=1
             # if user  QUIT then the screen will close
             if event.type == pygame.QUIT:
                 pygame.quit()
