@@ -25,6 +25,6 @@ while run:
 window = pygame.display.set_mode((manager.WINDOW_WIDTH,manager.WINDOW_HEIGHT), pygame.HWSURFACE)
 pygame.display.set_caption("Title")
 
-interfaces.credits.output(window)
+#interfaces.credits.output(window)
 interfaces.intro.output(window)
-interfaces.game.output(window)
+#interfaces.game.output(window)
