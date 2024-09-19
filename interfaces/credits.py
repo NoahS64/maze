@@ -1,25 +1,29 @@
 import pygame,sys
 import manager
-
+import objects.button
 
 
 
 def output(window):
     font = pygame.font.SysFont('Consolas', 30)
+    btn_intro=objects.button.with_background(20,600,400,150,'Consolas',30,(0,255,0),(255,0,255),(0,255,0),(255,0,255),"PRESS TO RETURN")
     
-    while True:
-        key_Input = pygame.key.get_pressed()
+    run=True
+    while run:
+
         window.fill((255,255,255))
         window.blit(font.render("CREDITS", True, (123, 255, 78)), (200,250))
         window.blit(font.render("CREATOR-NOAH SLUIMAN", True, (123, 255, 78)), (200,350))
         window.blit(font.render("TEACHER-MATTHEW DUSOME", True, (123, 255, 78)), (200,400))
         window.blit(font.render("ASISTANT-RILEY HELPED A LITTLE", True, (123, 255, 78)), (200,450))
         window.blit(font.render("PICTURES-WENDY'S", True, (123, 255, 78)), (200,500))
+
+        btn_intro.draw(window)
         
-        window.blit(font.render("PRESS ESC TO CONTINUE", True, (123, 255, 78)), (200,700))
-        if (key_Input[pygame.K_ESCAPE]):
-            break
         for event in pygame.event.get():
+            if btn_intro.update(pygame.mouse.get_pos(),event):
+                run=False
+                manager.level=0
             # if user  QUIT then the screen will close
             if event.type == pygame.QUIT:
                 pygame.quit()

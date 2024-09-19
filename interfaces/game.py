@@ -4,7 +4,8 @@ import objects.player
 import manager
 import textstuff
 import interfaces.credits
-
+import objects.button
+import interfaces.intro
 
 
 
@@ -15,6 +16,9 @@ def output(window):
     font = pygame.font.SysFont('Consolas', 30)
 
     old_high_score=float(textstuff.strings_read('txt_file.txt')[0])
+    
+    btn_intro=objects.button.with_background(10,900,300,100,'Consolas',30,(0,255,0),(255,0,255),(0,255,0),(255,0,255),"PRESS TO RETURN")
+    
     
     def gridHelp():
             spacer = 50
@@ -35,10 +39,10 @@ def output(window):
         manager.timer+=.01
         manager.timer = float('{0:.2f}'.format(manager.timer))
         bgr.draw(window)
+        btn_intro.draw(window)
 
 
-
-        window.blit(font.render("FINISH", True, (123, 255, 78)), (10,850))
+        window.blit(font.render("FINISH", True, (123, 255, 78)), (600,900))
         window.blit(font.render(f"HIGHSCORE: {old_high_score}", True, (123, 255, 78)), (700,200))
 
         window.blit(font.render(f"{format(manager.timer)}", True, (123, 255, 78)), (200,160))
@@ -46,8 +50,8 @@ def output(window):
 
 
 
-
-    while True:
+    run=True
+    while run:
         display()
         #gridHelp(window,WINDOW_WIDTH,WINDOW_HEIGHT)
         bgr.key_pressed()
@@ -59,6 +63,9 @@ def output(window):
 
 
         for event in pygame.event.get():
+            if btn_intro.update(pygame.mouse.get_pos(),event):
+                run=False
+                manager.level=0
         # if user  QUIT then the screen will close
             if event.type == pygame.QUIT:
                 pygame.quit()
