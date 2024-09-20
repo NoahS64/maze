@@ -14,8 +14,6 @@ def output(window):
     window.blit(font.render("ENTER NAME BELOW", True, (123, 255, 78)), (80,170))
     text_name=objects.text.input(80,200,300,50,'Consolas',24,(255,40,123),(123,40,255),"")
     
-
-    
     run=True
     while run:
         window.fill((255,255,255))
