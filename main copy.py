@@ -11,7 +11,7 @@ import interfaces.credits
 
 pygame.init()
 
-run=False
+run=True
 while run:
     choice=input("Would you like to start new? Y/N: ").capitalize()
     if choice == "Y":
