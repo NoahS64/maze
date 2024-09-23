@@ -12,13 +12,16 @@ def output(window):
     btn_credits=objects.button.with_images(300,350,100,100,"images/credits.png","images/credits_h.png")
     btn_x=objects.button.with_images(800,800,100,100,"images/exit.png","images/exit_h.png")
     
-    window.blit(font.render("ENTER NAME BELOW", True, (123, 255, 78)), (80,170))
+    
     text_name=objects.text.input(80,200,300,50,'Consolas',24,(255,40,123),(123,40,255),"")
+    
     
     run=True
     while run:
         window.fill((255,255,255))
+        window.blit(font.render("ENTER NAME BELOW", True, (123, 255, 78)), (80,170))
        #DRAW
+        pygame.display.set_caption(f"{text_name.text}")
         btn_game.draw(window)
         btn_credits.draw(window)
         btn_x.draw(window)

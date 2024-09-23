@@ -1,4 +1,4 @@
-#Name: Noah Sluiman
+
 #Date: September 9th 2024
 #MAZE
 import pygame,sys
@@ -26,7 +26,7 @@ while run:
 
 #window setup
 window = pygame.display.set_mode((manager.WINDOW_WIDTH,manager.WINDOW_HEIGHT), pygame.HWSURFACE)
-pygame.display.set_caption("Title")
+pygame.display.set_caption("MAZE")
 
 #changes screen
 while True:
