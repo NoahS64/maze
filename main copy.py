@@ -23,6 +23,8 @@ while run:
     else:
         print("Try again")
 
+
+
 #window setup
 window = pygame.display.set_mode((manager.WINDOW_WIDTH,manager.WINDOW_HEIGHT), pygame.HWSURFACE)
 pygame.display.set_caption("MAZE")
