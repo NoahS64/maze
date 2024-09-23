@@ -27,6 +27,7 @@ old_high_score=float(textstuff.strings_read('txt_file.txt')[0])
 
 run=True
 while run:
+    #asks user to restart
     choice=input("Would you like to start new? Y/N: ").capitalize()
     if choice == "Y":
         run=False
@@ -47,7 +48,7 @@ def display():
     timer+=.01
     timer = float('{0:.2f}'.format(timer))
 
-    
+    #DRWAWS THE WALLS
     walls.append(pygame.draw.rect(window,(255,255,255),(0,0,speedx,speedy)))
     walls.append(pygame.draw.rect(window,(255,0,255),(0,0,WINDOW_WIDTH,10)))
     walls.append(pygame.draw.rect(window,(255,0,255),(0,0,10,WINDOW_HEIGHT)))
@@ -101,6 +102,7 @@ def gridHelp(window,WINDOW_WIDTH,WINDOW_HEIGHT):
 
 while True:
     display()
+    #key pressed
     key_Input = pygame.key.get_pressed()
     movex = (key_Input[pygame.K_a]*-speed) + (key_Input[pygame.K_d]*speed)
     movey = (key_Input[pygame.K_w]*-speed) + (key_Input[pygame.K_s]*speed)
@@ -108,6 +110,7 @@ while True:
     player_y += movey
     gridHelp(window,WINDOW_WIDTH,WINDOW_HEIGHT)
     
+    #collisions
     for wall in walls:
         if collision(wall,bgr):
             if timer>old_high_score:

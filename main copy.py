@@ -11,6 +11,7 @@ import interfaces.credits
 
 pygame.init()
 
+#Asks user if they would like to reset the highscore or not
 run=True
 while run:
     choice=input("Would you like to start new? Y/N: ").capitalize()
@@ -23,10 +24,11 @@ while run:
     else:
         print("Try again")
 
+#window setup
 window = pygame.display.set_mode((manager.WINDOW_WIDTH,manager.WINDOW_HEIGHT), pygame.HWSURFACE)
 pygame.display.set_caption("Title")
 
-
+#changes screen
 while True:
     if manager.level==2:
         interfaces.credits.output(window)

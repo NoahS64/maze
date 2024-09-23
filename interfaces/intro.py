@@ -7,6 +7,7 @@ import objects.text
 
 def output(window):
     font = pygame.font.SysFont('Consolas', 30)
+    #creates button variables
     btn_game=objects.button.no_background(20,350,'Consolas', 30,(0,0,0),(255,0,255),"GAME")
     btn_credits=objects.button.with_images(300,350,100,100,"images/credits.png","images/credits_h.png")
     btn_x=objects.button.with_images(800,800,100,100,"images/exit.png","images/exit_h.png")
@@ -17,13 +18,14 @@ def output(window):
     run=True
     while run:
         window.fill((255,255,255))
-       
+       #DRAW
         btn_game.draw(window)
         btn_credits.draw(window)
         btn_x.draw(window)
         text_name.draw(window)
         
         for event in pygame.event.get():
+            #when click on btn bring you to corresponding screen
             if btn_game.update(pygame.mouse.get_pos(),event):
                 run=False
                 manager.level=1
