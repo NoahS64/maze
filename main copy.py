@@ -8,7 +8,6 @@ import interfaces.intro
 import interfaces.game
 import interfaces.credits
 
-
 pygame.init()
 
 #Asks user if they would like to reset the highscore or not
